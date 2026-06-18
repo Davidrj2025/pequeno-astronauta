@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #f2b544;
+    color: #0b1026;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f2b544;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Cartão com cantos cortados — assinatura visual "crachá espacial" */
+  .badge-card {
+    clip-path: polygon(
+      6% 0%,
+      94% 0%,
+      100% 14%,
+      100% 100%,
+      0% 100%,
+      0% 14%
+    );
+  }
+
+  .badge-card-sm {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 88%,
+      92% 100%,
+      0% 100%
+    );
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-star;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-star px-7 py-4 font-display text-base font-600 text-nebula shadow-[0_0_0_0_rgba(242,181,68,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-4px_rgba(242,181,68,0.55)] active:translate-y-0;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 font-display text-base font-600 text-[#08321B] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-4px_rgba(37,211,102,0.5)] active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-dust/20 bg-white/5 px-6 py-3 font-display text-sm font-600 text-dust transition-all duration-300 hover:border-star/50 hover:bg-white/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-edges {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
